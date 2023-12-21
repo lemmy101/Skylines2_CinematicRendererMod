@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Reflection;
-using BepInEx;
+using BepInEx; 
 using Game;
 using Game.Common;
 using HarmonyLib;
 using LemmyModFramework;
 using UnityEngine;
-using Logger = LemmyModFramework.Logger; 
+using Logger = LemmyModFramework.Logger;  
 
 namespace LemmyMod_Mono
-{
+{   
+         
      
-
     [BepInPlugin("CinematicRendererMod", "CinematicRendererMod", "1.0.0.0")]
     public class CinematicRendererModPlugin : BaseUnityPlugin 
-    {
-         
+    {  
+          
         private void Awake()  
-        {
+        { 
             LemmyModFramework.Logger.LogSource = Logger;
             // CinematicRendererModPlugin startup logic
-            var harmony = new Harmony($"LemmyMod");
+            var harmony = new Harmony($"LemmyMod"); 
             Patcher.Init(harmony);
             Logger.LogInfo($"CinematicRendererModPlugin LemmyMod is loaded!");
 
@@ -29,7 +29,7 @@ namespace LemmyMod_Mono
 
             harmony.Patch(orig, postfix: new HarmonyMethod(methodToPatch));
 
-        } 
+        }  
          
         public const string GUID = "CinematicRendererMod";
 
