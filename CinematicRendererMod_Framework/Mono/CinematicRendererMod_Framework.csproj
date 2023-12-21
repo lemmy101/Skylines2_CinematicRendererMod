@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <AssemblyName>CinematicRendererMod_Framework</AssemblyName>
+    <Description>My first plugin</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources> 
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>LemmyModFramework</RootNamespace>
+  </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DebugType>Full</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony20">
+        <HintPath>..\..\..\Cities Skylines II\BepInEx\core\0Harmony20.dll</HintPath>
+      </Reference>
+      <Reference Include="BepInEx">
+        <HintPath>..\..\..\Cities Skylines II\BepInEx\core\BepInEx.dll</HintPath>
+      </Reference>
+      <Reference Include="BepInEx.Preloader">
+        <HintPath>..\..\..\Cities Skylines II\BepInEx\core\BepInEx.Preloader.dll</HintPath>
+      </Reference>
+      <Reference Include="Cinemachine">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Game\lib\Cinemachine.dll</HintPath>
+      </Reference>
+      <Reference Include="Colossal.AssetPipeline">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Colossal.AssetPipeline.dll</HintPath>
+      </Reference>
+      <Reference Include="Colossal.Collections">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Game\lib\Colossal.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="Colossal.Core">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Game\lib\Colossal.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Colossal.IO.AssetDatabase">
+        <HintPath>..\..\references\Colossal.IO.AssetDatabase.dll</HintPath>
+      </Reference>
+      <Reference Include="Game">
+        <HintPath>..\..\references\Game.dll</HintPath>
+      </Reference>
+      <Reference Include="mscorlib">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\mscorlib.dll</HintPath>
+      </Reference>
+      <Reference Include="netstandard">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\netstandard.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Entities">
+        <HintPath>..\..\references\Unity.Entities.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Mathematics">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Game\lib\Unity.Mathematics.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>..\..\references\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+        <HintPath>..\..\references\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.VisualEffectGraph.Runtime">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ImageConversionModule">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ScreenCaptureModule">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.VirtualTexturingModule">
+        <HintPath>..\..\..\Cities Skylines II\Cities2_Data\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+</Project>

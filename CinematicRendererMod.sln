@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinematicRendererMod", "CinematicRendererMod\CinematicRendererMod.csproj", "{A6DF15C6-9A76-46F4-9B60-903179D3A949}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{BAEA853B-6B09-46DC-A755-7E6FA302EC9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinematicRendererMod_Framework", "CinematicRendererMod_Framework\Mono\CinematicRendererMod_Framework.csproj", "{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assemblies", "Assemblies", "{356EA6C2-D6BE-43D8-9912-E66425577016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "..\Cities Skylines II\Cities2_Data\Managed\Game\Game.csproj", "{5AFD5189-2ABE-4E6D-B169-81B7391B95C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.Runtime", "..\Cities Skylines II\Cities2_Data\Managed\Unity.RenderPipelines.Core.Runtime\Unity.RenderPipelines.Core.Runtime.csproj", "{A85E738C-80C8-43FE-A0B2-62F85C16B5BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6DF15C6-9A76-46F4-9B60-903179D3A949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DF15C6-9A76-46F4-9B60-903179D3A949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DF15C6-9A76-46F4-9B60-903179D3A949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DF15C6-9A76-46F4-9B60-903179D3A949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFD5189-2ABE-4E6D-B169-81B7391B95C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFD5189-2ABE-4E6D-B169-81B7391B95C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85E738C-80C8-43FE-A0B2-62F85C16B5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85E738C-80C8-43FE-A0B2-62F85C16B5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFB8EA21-66A9-4AED-9F26-6D2FF0BCEB10} = {BAEA853B-6B09-46DC-A755-7E6FA302EC9E}
+		{5AFD5189-2ABE-4E6D-B169-81B7391B95C4} = {356EA6C2-D6BE-43D8-9912-E66425577016}
+		{A85E738C-80C8-43FE-A0B2-62F85C16B5BF} = {356EA6C2-D6BE-43D8-9912-E66425577016}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD6486E2-572F-4871-82AC-393BB584C2CC}
+	EndGlobalSection
+EndGlobal
