@@ -1,4 +1,4 @@
-# Skylines2_CinematicRendererMod
+# Cinematic Renderer Mod
 
 Automatically render the cinematic camera sequences to an mp4 file in your Videos library folder!
 
@@ -14,7 +14,11 @@ The simulation and camera synchronization to the frames is perfect, getting rid 
 
 Future versions (when I figure out how to edit the UI) will add options for codecs, resolution, framerate and other cool stuff!
 
-NOTE: The codec that the video encoder uses will not work with Windows Media Player without installing additional codecs, but will work on the much better VLC (https://www.videolan.org/), as well as in all video editing software and YouTube.
+# IMPORTANT NOTES
+
+* The codec that the video encoder uses will not work with Windows Media Player without installing additional codecs, but will work on the much better VLC (https://www.videolan.org/), as well as in all video editing software and YouTube.
+
+* At present this mod is incompatible with Preserve_Photo_Mode mod (https://thunderstore.io/c/cities-skylines-ii/p/Nyoko/Preserve_Photo_Mode/) which seems to kill camera movement in the sequences.
 
 # Installation - Manual
 
@@ -28,7 +32,7 @@ Launch the game, and your mods should be loaded automatically.
 
 # Updates
 
-1.1.0 - Changes to TGA frame format and moved frame saving to another thread to speed up rendering speed significantly.
+1.1.0 - Changes to TGA frame format and moved frame saving to another thread to speed up rendering speed significantly. Added console output window to show frames exporting when sequence ends playback.
 
 # BUILDING
 
