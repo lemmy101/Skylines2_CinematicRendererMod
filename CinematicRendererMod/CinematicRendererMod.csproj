@@ -68,8 +68,6 @@
      <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Exec Command="call ../copy.bat" />
     </Target>
-     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="call ../copy_release.bat" />
-    </Target>
+   
 
 </Project>

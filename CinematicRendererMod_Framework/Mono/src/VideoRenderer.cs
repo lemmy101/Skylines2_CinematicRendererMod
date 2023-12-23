@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using UnityEngine;
@@ -69,13 +71,28 @@ namespace LemmyModFramework
             }
         }
 
+        public struct SaveVideoData
+        {
+            public string dir { get; set; }
+            public string assDir { get; set; }
+        }
         public void Render(int framerate = 60)
         {
 
+            string assDir = AssemblyDirectory;
             string dir = Path.Combine(Application.persistentDataPath, "VideoFrames");
-            string ffmpeg_dir = AssemblyDirectory;
-             
-        
+            ThreadPool.UnsafeQueueUserWorkItem(SaveVideo, new SaveVideoData(){dir = dir, assDir = assDir});
+
+        } 
+
+        private static void SaveVideo(object state)
+        {
+            var saveVideoData = state is SaveVideoData ? (SaveVideoData)state : default;
+
+             string ffmpeg_dir = saveVideoData.assDir;
+             string dir = saveVideoData.dir;
+
+
             try
             {
                 if (File.Exists(dir + "\\out.mp4"))
@@ -85,28 +102,34 @@ namespace LemmyModFramework
             }
             catch (Exception e)
             {
-                
-            }
 
-            try
-            {
+            } 
+            try 
+            { 
                 Process process = new Process();
-                process.StartInfo.FileName = ffmpeg_dir + "\\ffmpeg.exe";
-                string args = "-pattern_type sequence -i \"" + dir +
-                              "\\Video_%05d.png\" -c:v libx264 -pix_fmt yuv444p -r 60 -s:v " + Screen.width + "x" +
+                process.StartInfo.FileName = "CMD.exe";
+                string args = "/C .\\ffmpeg.exe " + "-pattern_type sequence -i \"" + dir +
+                              "\\Video_%05d.tga\" -c:v libx264 -pix_fmt yuv444p -r 60 -s:v " + Screen.width + "x" +
                               Screen.height + " \"" + dir + "\\out.mp4\"";
                 process.StartInfo.Arguments = args;
-                process.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.StartInfo.CreateNoWindow = false;
+                process.StartInfo.WorkingDirectory = ffmpeg_dir;
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.RedirectStandardOutput = false;
                 process.Start();
-                process.WaitForExit();// Waits here for the process to exit.
+             //   process = System.Diagnostics.Process.Start("CMD.exe", "/C" + ffmpeg_dir + "\\ffmpeg.exe " + "\\Video_%05d.tga\" -c:v libx264 -pix_fmt yuv444p -r 60 -s:v " + Screen.width + "x" +
+               //                                             Screen.height + " \"" + dir + "\\out.mp4\"");
+                //process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.WaitForExit();
+
+            } 
+            catch (Exception e) 
+            { 
 
             }
-            catch (Exception e)
-            {
-                
-            }
 
-            try
+            try 
             {
                 var pathPtr = default(IntPtr);
                 var videoLibGuid = new Guid("491E922F-5643-4AF4-A7EB-4E7A138D8174");
@@ -140,7 +163,7 @@ namespace LemmyModFramework
 
                 string pathLib = foldersInLibrary[0];
 
-                File.Copy(dir + "\\out.mp4", pathLib + "\\" + (DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".mp4") );
+                File.Copy(dir + "\\out.mp4", pathLib + "\\" + (DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".mp4"));
             }
             catch (Exception e)
             {
@@ -164,10 +187,10 @@ namespace LemmyModFramework
                     }
                     catch (Exception e)
                     {
-                        
+
                     }
-                    
-                    
+
+
                 }
 
             }
@@ -184,6 +207,24 @@ namespace LemmyModFramework
             {
             }
         }
+
+        struct ImageData
+        {
+            public string fileName;
+            public byte[] bytes;
+        }
+        public void AddFrameToExport(byte[] pngdata, string fileName)
+        {
+            ThreadPool.QueueUserWorkItem(WriteImageToFile, new ImageData() {fileName = fileName, bytes = pngdata});
+        }
+
+        private void WriteImageToFile(object state)
+        {
+            ImageData data = (ImageData)state;
+
+            File.WriteAllBytes(data.fileName, data.bytes);
+        }
     }
+
 }
   

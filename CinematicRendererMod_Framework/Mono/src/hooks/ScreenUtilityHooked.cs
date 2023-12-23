@@ -25,11 +25,16 @@ namespace LemmyModFramework.hooks
             string str = Path.Combine(Application.persistentDataPath, "VideoFrames");
             if (!Directory.Exists(str))
                 Directory.CreateDirectory(str);
-            string path = Path.Combine(str, Path.ChangeExtension(fileName, ".png"));
-            File.WriteAllBytes(path, tex.EncodeToPNG());
+            string path = Path.Combine(str, Path.ChangeExtension(fileName, ".tga"));
+            byte[] data = tex.GetRawTextureData();
+
+            var pngdata = ImageConversion.EncodeArrayToTGA(data, tex.graphicsFormat, (uint)tex.width, (uint)tex.height);
+            //try find faster ways to get the images out
+            VideoRenderer.Instance.AddFrameToExport(pngdata, path);
+       
             Object.DestroyImmediate((Object)tex);
             __result =  path;
-
+             
             return false;
         }
     } 

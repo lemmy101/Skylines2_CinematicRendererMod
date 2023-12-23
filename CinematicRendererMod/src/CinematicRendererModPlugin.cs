@@ -12,7 +12,7 @@ namespace LemmyMod_Mono
 {   
          
      
-    [BepInPlugin("CinematicRendererMod", "CinematicRendererMod", "1.0.0.0")]
+    [BepInPlugin("CinematicRendererMod", "CinematicRendererMod", "1.1.0")]
     public class CinematicRendererModPlugin : BaseUnityPlugin 
     {  
           
