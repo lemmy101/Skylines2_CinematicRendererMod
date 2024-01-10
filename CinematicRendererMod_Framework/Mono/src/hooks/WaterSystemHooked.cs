@@ -15,7 +15,7 @@ namespace LemmyModFramework.hooks
             if (!Globals.fixedTimeActive)
                 return;
 
-            float targetSimulationSpeed = Globals.FixedStepSimulationSpeed;
+            float targetSimulationSpeed = Globals.FixedStepSimulationSpeedDelta;
             float unscaledDeltaTime = Time.unscaledDeltaTime;
             unscaledDeltaTime = 1.0f / targetSimulationSpeed;
             __instance.m_TimeStep = unscaledDeltaTime * 0.00000001f;

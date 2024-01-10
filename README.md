@@ -2,7 +2,7 @@
 
 Automatically render the cinematic camera sequences to an mp4 file in your Videos library folder!
 
-Demo video here: https://www.youtube.com/watch?v=n2mfajbLiik
+Demo video here: 
 
 For this initial version, the video will be at 60fps and in the same resolution the game is rendering in.
 
@@ -31,6 +31,8 @@ Download the mod from Thunderstore.io or the release page. Unzip it into the Cit
 Launch the game, and your mods should be loaded automatically.
 
 # Updates
+
+1.2.0 - Fixed bug in ffmpeg parameters that was interpreting frames from the game as 25 fps, resulting in frame replication and 25fps with duplicate frames in the output 60fps video. Results are MUCH smoother and true 60fps now. Also slowed simulation to account for extra 35 frames per second needed from Skylines. New video here: 
 
 1.1.0 - Changes to TGA frame format and moved frame saving to another thread to speed up rendering speed significantly. Added console output window to show frames exporting when sequence ends playback.
 

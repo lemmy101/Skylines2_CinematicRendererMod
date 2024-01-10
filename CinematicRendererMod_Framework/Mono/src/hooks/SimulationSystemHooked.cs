@@ -32,7 +32,7 @@ namespace LemmyModFramework.hooks
             int steps = (int)(120.0f / Globals.FixedStepSimulationSpeed);
             if (steps < 1)
                 steps = 1;
-            float targetSimulationSpeed =Globals.FixedStepSimulationSpeed;
+            float targetSimulationSpeed =Globals.FixedStepSimulationSpeedDelta;
             float deltaTime = 1.0f / targetSimulationSpeed;
        
             // ISSUE: reference to a compiler-generated field

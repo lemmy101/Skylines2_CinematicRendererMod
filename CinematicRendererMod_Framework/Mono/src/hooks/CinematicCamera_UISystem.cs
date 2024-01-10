@@ -29,7 +29,7 @@ namespace LemmyModFramework.hooks
             {
                 frame = 0;
                 recording = true;
-                float targetSimulationSpeed = Globals.FixedStepSimulationSpeed;
+                float targetSimulationSpeed = Globals.FixedStepSimulationSpeedDelta;
                 float unscaledDeltaTime = Time.unscaledDeltaTime;
                 unscaledDeltaTime = 1.0f / targetSimulationSpeed;
                 Time.captureDeltaTime = unscaledDeltaTime;
@@ -97,7 +97,7 @@ namespace LemmyModFramework.hooks
                 return true;
             }
 
-            float targetSimulationSpeed = Globals.FixedStepSimulationSpeed;
+            float targetSimulationSpeed = Globals.FixedStepSimulationSpeedDelta;
             float unscaledDeltaTime = Time.unscaledDeltaTime;
             unscaledDeltaTime = 1.0f / targetSimulationSpeed;
             if (__instance.playing)
@@ -106,7 +106,7 @@ namespace LemmyModFramework.hooks
 
             }  
              
-            __instance.t += unscaledDeltaTime;
+            __instance.t += unscaledDeltaTime * 4;
             // ISSUE: reference to a compiler-generated field
             CinematicCameraSequence cinematicCameraSequence = __instance.m_ActiveAutoplaySequence ?? __instance.activeSequence;
             if ((double)__instance.t >= (double)cinematicCameraSequence.playbackDuration)

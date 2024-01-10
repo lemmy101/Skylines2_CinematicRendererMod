@@ -108,8 +108,8 @@ namespace LemmyModFramework
             { 
                 Process process = new Process();
                 process.StartInfo.FileName = "CMD.exe";
-                string args = "/C .\\ffmpeg.exe " + "-pattern_type sequence -i \"" + dir +
-                              "\\Video_%05d.tga\" -c:v libx264 -pix_fmt yuv444p -r 60 -s:v " + Screen.width + "x" +
+                string args = "/C .\\ffmpeg.exe " + "-framerate 60 -pattern_type sequence -i \"" + dir +
+                              "\\Video_%05d.tga\" -c:v libx264 -pix_fmt yuv444p -s:v " + Screen.width + "x" +
                               Screen.height + " \"" + dir + "\\out.mp4\"";
                 process.StartInfo.Arguments = args;
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;

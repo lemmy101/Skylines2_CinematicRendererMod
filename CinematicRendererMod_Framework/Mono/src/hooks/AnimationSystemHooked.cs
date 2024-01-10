@@ -13,7 +13,7 @@ namespace LemmyModFramework.hooks
     {
         public static bool OnUpdate(AnimationSystem __instance)
         {
-            float targetSimulationSpeed = Globals.FixedStepSimulationSpeed;
+            float targetSimulationSpeed = Globals.FixedStepSimulationSpeedDelta;
             float unscaledDeltaTime = Time.unscaledDeltaTime;
             unscaledDeltaTime = 1.0f / targetSimulationSpeed;
             // ISSUE: reference to a compiler-generated field
